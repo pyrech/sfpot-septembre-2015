@@ -1,0 +1,296 @@
+<!DOCTYPE HTML>
+<html lang="fr">
+<head>
+	<title>Projets perso : JoliNotif et php7-checker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=792, user-scalable=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<link rel="stylesheet" href="shower/themes/ribbon/styles/screen.css">
+	<link rel="stylesheet" href="styles/prism.css" />
+	<link rel="stylesheet" href="styles/custom.css">
+</head>
+<body class="list">
+	<header class="caption">
+		<h1>Projets perso : JoliNotif et php7-checker</h1>
+		<p>Sfpot - Loïck Piera - Septembre 2015</p>
+	</header>
+
+	<section class="slide cover" id="coverpage"><div>
+		<img src="covers/jolicode-bg.jpg" />
+		<div class="covertitle">
+			<h2>Projets perso : JoliNotif et php7-checker</h2>
+			<p>Sfpot - Loïck Piera - <span class="date">Septembre 2015</span></p>
+		</div>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Coucou, moi c'est Loïck Piera</h2>
+		<ul>
+			<li>Consultant web @ <img src="pictures/logo.svg" style="height:1em; vertical-align: text-bottom;"></li>
+			<li><img src="pictures/twitter.png" style="width: 20px"> <a href="https://twitter.com/pyrech">@pyrech</a></li>
+			<li><img src="pictures/github.png" style="width: 20px"> <a href="https://github.com/pyrech">@pyrech</a></li>
+		</ul>
+		<p><img src="pictures/trotinette.gif"></p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>JoliNotif </h2>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>PHP</h2>
+		<ul>
+			<li>20 ans cette année \o/</li>
+			<li>Début comme moteur de template pour le web ...</li>
+			<li class="next">... de plus en plus utilisé dans la console</li>
+		</ul>
+        <img src="pictures/elephpant.png" alt="" class="place r b" />
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>PHP dans la console</h2>
+        <ul>
+            <li>Installation des dépendances : composer, bowerphp</li>
+            <li>Lancer vos tests unitaires : phpunit, phpspec</li>
+            <li>Integration continue</li>
+            <li>Déploiement continu</li>
+            <li>Divers outils : php-cs-fixer, php7-checker :D</li>
+        </ul>
+        <p class="next">Process long ?</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>Desktop notification</h2>
+        <ul>
+            <li>Super cool \o/</li>
+            <li>Mais spécifique à chaque OS :'(</li>
+        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Mac OS</th>
+                    <th scope="col">Linux</th>
+                    <th scope="col">Windows</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Growl</td>
+                    <td>notify-send</td>
+                    <td>Notifu (Windows 7)</td>
+                </tr>
+                <tr>
+                    <td>terminal-notifier</td>
+                    <td></td>
+                    <td>Toaster (Windows 8+)</td>
+                </tr>
+                <tr>
+                    <td>AppleScript (Mac OS X 10.8+)</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 20px; margin-top: -30px;">Evidemment chacun a ses propres syntaxes et options</p>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>JoliNotif</h2>
+        <ul>
+            <li>Léger</li>
+            <li>Simple à utiliser</li>
+            <li>Cross-platform : choisit le meilleur notifier disponible</li>
+        </ul>
+	</div></section>
+
+	<section class="slide"><div>
+		<h2>&laquo; Fait voir du code &raquo;</h2>
+        <pre><code class="language-php">/** @var \Joli\JoliNotif\Notifier|null $notifier */
+$notifier = Joli\JoliNotif\NotifierFactory::create();</code></pre>
+        <pre class="next"><code class="language-php">if ($notifier) {
+    $notification =
+        (new Joli\JoliNotif\Notification())
+        ->setBody('The notification body')
+        ->setTitle('The notification title')
+        ->setIcon(__DIR__.'/Resources/icons/success.png');
+    ;
+
+    $notifier->send($notification);
+}</code></pre>
+	</div></section>
+
+    <section class="slide"><div>
+        <h2>Démo</h2>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Projets utilisant JoliNotif</h2>
+        <ul>
+            <li>JoliCi (client d'intégration continue basé sur docker)</li>
+            <li>Sismo (serveur de test continu)</li>
+            <li>codeception-notifier (extension pour codeception)</li>
+            <li>Bldr (task runner)</li>
+            <li>phpunit-notifier (listener pour notifier du résultat)</li>
+            <li>composer-notifier (commandes install et update)</li>
+            <li>PHP Eyecare (pour respecter la règle des 20 20 20)</li>
+        </ul>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>php7-checker</h2>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>C'est quoi ?</h2>
+        <ul>
+            <li>Analyse statique</li>
+            <li>Incompatibilités avec PHP 7</li>
+            <li>PhpParser de Nikita Popov</li>
+        </ul>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>AST</h2>
+        <ul>
+            <li>Abstract syntax tree</li>
+            <li>Autre représentation de votre code</li>
+        </ul>
+        <pre><code class="language-php">
+echo 'Hi', 'World';
+hello\world('foo', 'bar' . 'baz');</code></pre>
+    </div></section>
+
+
+    <section class="slide full"><div>
+        <pre style="font-size:10px; margin-top:-90px;"><code class="language-php" style="line-height: 15px;">array(
+    0: Stmt_Echo(
+        exprs: array(
+            0: Scalar_String(
+                value: Hi
+            )
+            1: Scalar_String(
+                value: World
+            )
+        )
+    )
+    1: Expr_FuncCall(
+        name: Name(
+            parts: array(
+                0: hello
+                1: world
+            )
+        )
+        args: array(
+            0: Arg(
+                value: Scalar_String(
+                    value: foo
+                )
+                byRef: false
+            )
+            1: Arg(
+                value: Expr_Concat(
+                    left: Scalar_String(
+                        value: bar
+                    )
+                    right: Scalar_String(
+                        value: baz
+                    )
+                )
+                byRef: false
+            )
+        )
+    )
+)</code></pre>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Visiteurs</h2>
+        <p><img src="pictures/visiteurs.gif"></p>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Visiteurs</h2>
+        <ul>
+            <li>Parcours de l'AST</li>
+        </ul>
+        <pre><code class="language-php">namespace PhpParser\NodeVisitor;
+
+interface NodeVisitor {
+    public function beforeTraverse(array $nodes) {}
+
+    public function enterNode(Node $node) {}
+
+    public function leaveNode(Node $node) {}
+
+    public function afterTraverse(array $nodes) {}
+}</code></pre>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Exemple de visiteur</h2>
+        <ul>
+            <li><code class="language-php" style="font-size:20px; line-height: 20px;">$foo =& new Bar();</code></li>
+            <li>Déprécié depuis php 5.3</li>
+        </ul>
+        <pre style="font-size:15px;"><code class="language-php" style="line-height: 20px;">class NewAssignmentByReferenceChecker extends AbstractChecker
+{
+    public function leaveNode(Node $node)
+    {
+        if ($node instanceof Node\Expr\AssignRef) {
+            if ($node->expr instanceof Node\Expr\New_) {
+                $this->errorCollection->add(new Error(
+                    $this->parserContext->getFilename(),
+                    $node->getLine(),
+                    'New objects cannot be assigned by reference.'
+                ));
+            }
+        }
+    }
+}</code></pre>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Checks</h2>
+        <ul style="font-size: 20px;">
+            <li>Reserved types (int, float, bool, string, true, false, null)</li>
+            <li>PHP 4 constructor</li>
+            <li>New assignment by reference</li>
+            <li>Integer handling changes (invalid octal literal)</li>
+            <li>List handling changes (empty list)</li>
+            <li>Duplicated parameter name in function</li>
+            <li>Function removed (mysql, ereg, etc)</li>
+            <li>New class added</li>
+            <li>New function added</li>
+            <li>$HTTP_RAW_POST_DATA removed</li>
+        </ul>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Démo</h2>
+    </div></section>
+
+    <section class="slide"><div>
+        <h2>Collaborer c'est mieux :)</h2>
+        <ul>
+            <li><a href="https://github.com/sstalle/php7cc">sstalle/php7cc</a></li>
+            <li>php7-checker abandonné</li>
+        </ul>
+    </div></section>
+
+	<section class="slide"><div>
+        <h2>Merci de votre attention</h2>
+		<p>
+            <a href="https://pyrech.github.io/sfpot-septembre-2015">https://pyrech.github.io/sfpot-septembre-2015</a>
+        </p>
+        <p>Des questions ?</p>
+
+	</div></section>
+
+
+	<div class="progress"><div></div></div>
+	<script src="shower/shower.min.js"></script>
+	<script src="styles/prism.js"></script>
+	<script src="styles/jquery-2.1.1.min.js"></script>
+	<script src="styles/progress.js"></script>
+</body>
+</html>
